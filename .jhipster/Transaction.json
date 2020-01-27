@@ -1,0 +1,48 @@
+{
+    "name": "Transaction",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "soldeApres",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "soldeAvant",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dateOperation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "personne",
+            "otherEntityRelationshipName": "transaction",
+            "relationshipName": "personne",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200127170622",
+    "entityTableName": "transaction",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
