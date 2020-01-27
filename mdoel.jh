@@ -1,0 +1,40 @@
+ entity Transaction {
+  id Integer 
+  code String
+  montant Integer
+  soldeApres Integer
+  soldeAvant Integer
+  dateOperation LocalDate
+  etat Boolean
+}
+
+entity Compte {
+  id Integer 
+  code String
+  solde Integer
+  soldeAvant Integer
+  description String
+  dateUpdate LocalDate
+  active Boolean
+}
+
+entity Personne {
+  code String
+  prenom String  
+  nom String  
+  telephone String
+  active Boolean
+}
+
+relationship ManyToMany {
+  Personne{code(code)} to Compte{personne}
+}
+
+relationship ManyToOne {
+  Personne{operation(code)} to Transaction
+  Personne{assignedTo(login)} to User
+}
+
+paginate Personne with pagination
+paginate Transaction with pagination
+paginate Compte with pagination
